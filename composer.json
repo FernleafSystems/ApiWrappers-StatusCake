@@ -1,0 +1,24 @@
+{
+  "name":              "fernleafsystems/apiwrappers-statuscake",
+  "authors":           [
+    {
+      "name":     "Paul Goodchild",
+      "email":    "paul@paulgoodchild.me",
+      "homepage": "https://paulgoodchild.me"
+    }
+  ],
+  "repositories":      [
+  ],
+  "require":           {
+    "fernleafsystems/apiwrappers-base": "^1.0.0"
+  },
+  "require-dev":       {
+  },
+  "minimum-stability": "dev",
+  "prefer-stable":     true,
+  "autoload":          {
+    "psr-4": {
+      "FernleafSystems\\ApiWrappers\\StatusCake\\": "src"
+    }
+  }
+}
