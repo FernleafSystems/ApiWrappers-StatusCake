@@ -12,4 +12,15 @@ class Create extends BaseTestUpdate {
 	public function createNewTest() {
 		return $this->req()->isSuccessful() ? $this->getDecodedResponseBody()[ 'InsertID' ] : null;
 	}
+
+	/**
+	 * @throws \Exception
+	 */
+	protected function preSendVerification() {
+		parent::preSendVerification();
+
+		if ( empty( $this->getRequestDataItem( 'WebsiteName' ) ) ) {
+			throw new \InvalidArgumentException( 'StatusCake Test name must not be empty' );
+		}
+	}
 }
