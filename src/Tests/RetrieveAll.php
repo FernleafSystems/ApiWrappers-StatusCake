@@ -24,13 +24,10 @@ class RetrieveAll extends BaseTests {
 	 * @return array[]|null
 	 */
 	public function getAll() {
-		return $this->req()->isSuccessful() ? $this->getDecodedResponseBody() : array();
+		return $this->req()->isSuccessful() ? $this->getDecodedResponseBody() : [];
 	}
 
-	/**
-	 * @return string
-	 */
-	protected function getUrlEndpoint() {
+	protected function getUrlEndpoint() :string {
 		return 'Tests/';
 	}
 }

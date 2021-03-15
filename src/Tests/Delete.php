@@ -12,10 +12,7 @@ class Delete extends BaseTests {
 
 	const REQUEST_METHOD = 'delete';
 
-	/**
-	 * @return boolean
-	 */
-	public function deleteTest() {
+	public function deleteTest() :bool {
 		return $this->req()->isSuccessful();
 	}
 
@@ -23,28 +20,19 @@ class Delete extends BaseTests {
 	 * @param int $nId
 	 * @return $this
 	 */
-	public function setTestId( $nId ) {
+	public function setTestId( $nId ) :self {
 		return $this->setRequestDataItem( 'TestID', (int)$nId );
 	}
 
-	/**
-	 * @return $this
-	 */
-	public function unsetTestId() {
+	public function unsetTestId() :self {
 		return $this->removeRequestDataItem( 'TestID' );
 	}
 
-	/**
-	 * @return string
-	 */
-	protected function getUrlEndpoint() {
+	protected function getUrlEndpoint() :string {
 		return 'Tests/Details';
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getDataChannel() {
+	public function getDataChannel() :string {
 		return 'query';
 	}
 }

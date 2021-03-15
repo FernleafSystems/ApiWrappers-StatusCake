@@ -5,6 +5,17 @@ namespace FernleafSystems\ApiWrappers\StatusCake\Tests;
 /**
  * Class TestVO
  * @package FernleafSystems\ApiWrappers\StatusCake\Tests
+ * @property        $ErrNo
+ * @property string $Error
+ * @property int    $TestID
+ * @property string $TestType
+ * @property int    $CheckRate - seconds
+ * @property string $WebsiteName
+ * @property int    $Timeout
+ * @property int    $Uptime    - percentage
+ * @property bool   $Paused
+ * @property bool   $Success
+ * @property string $Status
  */
 class TestVO extends \FernleafSystems\ApiWrappers\Base\BaseVO {
 
@@ -12,90 +23,66 @@ class TestVO extends \FernleafSystems\ApiWrappers\Base\BaseVO {
 	 * @return int|null
 	 */
 	public function getErrorNo() {
-		return $this->getParam( 'ErrNo' );
+		return $this->ErrNo;
 	}
 
 	/**
 	 * @return string
 	 */
 	public function getErrorText() {
-		return $this->getStringParam( 'Error' );
+		return $this->Error;
 	}
 
-	/**
-	 * @return bool
-	 */
-	public function isValid() {
+	public function isValid() :bool {
 		return parent::isValid() && ( $this->isSuccess() || is_null( $this->getErrorNo() ) );
 	}
 
-	/**
-	 * @return int
-	 */
 	public function id() {
-		return $this->getParam( 'TestID' );
+		return $this->TestID;
 	}
 
-	/**
-	 * @return string
-	 */
 	public function testType() {
-		return $this->getParam( 'TestType' );
+		return $this->TestType;
 	}
 
 	/**
 	 * @return int seconds
 	 */
 	public function checkRate() {
-		return $this->getParam( 'CheckRate' );
+		return $this->CheckRate;
 	}
 
-	/**
-	 * @return int seconds
-	 */
 	public function name() {
-		return $this->getParam( 'WebsiteName' );
+		return $this->WebsiteName;
 	}
 
 	/**
 	 * @return int seconds
 	 */
 	public function timeout() {
-		return $this->getParam( 'Timeout' );
+		return $this->Timeout;
 	}
 
 	/**
 	 * @return int percentage
 	 */
 	public function uptime() {
-		return $this->getParam( 'Uptime' );
+		return $this->Uptime;
 	}
 
-	/**
-	 * @return bool
-	 */
-	public function isDown() {
+	public function isDown() :bool {
 		return !$this->isUp();
 	}
 
-	/**
-	 * @return bool
-	 */
 	public function isPaused() {
-		return $this->getParam( 'Paused' );
+		return $this->Paused;
 	}
 
-	/**
-	 * @return bool
-	 */
 	public function isSuccess() {
-		return (bool)$this->getParam( 'Success' );
+		return (bool)$this->Success;
 	}
 
-	/**
-	 * @return bool
-	 */
-	public function isUp() {
-		return ( $this->getParam( 'Status' ) == 'Up' );
+	public function isUp() :bool {
+		return $this->Status == 'Up';
 	}
 }

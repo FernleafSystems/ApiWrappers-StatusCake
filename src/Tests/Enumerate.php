@@ -17,10 +17,7 @@ class Enumerate extends BaseTests {
 		return $this->req()->getDecodedResponseBody();
 	}
 
-	/**
-	 * @return string
-	 */
-	protected function getUrlEndpoint() {
+	protected function getUrlEndpoint() :string {
 		return 'Tests/';
 	}
 
@@ -28,35 +25,23 @@ class Enumerate extends BaseTests {
 	 * @param int $nId
 	 * @return $this
 	 */
-	public function setGroupId( $nId ) {
-		return $this->setRequestData( array( 'CUID' => (int)$nId ) );
+	public function setGroupId( $nId ) :self {
+		return $this->setRequestData( [ 'CUID' => (int)$nId ] );
 	}
 
-	/**
-	 * @return $this
-	 */
-	public function unsetGroupId() {
+	public function unsetGroupId() :self {
 		return $this->removeRequestDataItem( 'CUID' );
 	}
 
-	/**
-	 * @return $this
-	 */
-	public function setForStatusUp() {
-		return $this->setRequestData( array( 'Status' => 'Up' ) );
+	public function setForStatusUp() :self {
+		return $this->setRequestData( [ 'Status' => 'Up' ] );
 	}
 
-	/**
-	 * @return $this
-	 */
-	public function setForStatusDown() {
-		return $this->setRequestData( array( 'Status' => 'Down' ) );
+	public function setForStatusDown() :self {
+		return $this->setRequestData( [ 'Status' => 'Down' ] );
 	}
 
-	/**
-	 * @return $this
-	 */
-	public function unsetForStatus() {
+	public function unsetForStatus() :self {
 		return $this->removeRequestDataItem( 'Status' );
 	}
 }
