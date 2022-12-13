@@ -92,14 +92,11 @@ class BaseTestUpdate extends BaseTests {
 	 * The data is sent using http_build_query(), like a form
 	 * @return string
 	 */
-	public function getDataChannel() {
+	public function getDataChannel() :string {
 		return 'form_params';
 	}
 
-	/**
-	 * @return string
-	 */
-	protected function getUrlEndpoint() {
+	protected function getUrlEndpoint() :string {
 		return 'Tests/Update';
 	}
 }

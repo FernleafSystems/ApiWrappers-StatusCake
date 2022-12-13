@@ -30,10 +30,7 @@ class Retrieve extends \FernleafSystems\ApiWrappers\StatusCake\Api {
 		return $this->removeRequestDataItem( 'TestID' );
 	}
 
-	/**
-	 * @return string
-	 */
-	protected function getUrlEndpoint() {
+	protected function getUrlEndpoint() :string {
 		return 'Tests/Periods/';
 	}
 }

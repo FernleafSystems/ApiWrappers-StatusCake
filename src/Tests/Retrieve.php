@@ -32,21 +32,15 @@ class Retrieve extends BaseTests {
 	 * @param int $nId
 	 * @return $this
 	 */
-	public function setTestId( $nId ) {
+	public function setTestId( $nId ) :self {
 		return $this->setRequestDataItem( 'TestID', (int)$nId );
 	}
 
-	/**
-	 * @return $this
-	 */
-	public function unsetTestId() {
+	public function unsetTestId() :self {
 		return $this->removeRequestDataItem( 'TestID' );
 	}
 
-	/**
-	 * @return string
-	 */
-	protected function getUrlEndpoint() {
+	protected function getUrlEndpoint() :string {
 		return 'Tests/Details';
 	}
 }
