@@ -12,7 +12,7 @@ class Api extends BaseApi {
 		$conn = $this->getConnection();
 		return array_merge(
 			[
-				'Authorization' => $conn->api_key,
+				'Authorization' => sprintf( 'Bearer %s', $conn->api_key ),
 				'Accept'        => $this->getResponseContentType(),
 				'Content-Type'  => $this->getRequestContentType(),
 			],
