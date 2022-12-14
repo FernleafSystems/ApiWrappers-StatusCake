@@ -34,7 +34,9 @@ abstract class BaseCreateUpdate extends Base {
 	}
 
 	public function setTestTags( array $tags ) :self {
-		return $this->setRequestDataItem( 'tags', implode( ',', $tags ) );
+		return $this->setRequestDataItem( 'tags',
+			array_filter( array_map( fn( $tag ) => trim( strval( $tag ) ), $tags ) )
+		);
 	}
 
 	public function setTestTypeHttp() :self {
