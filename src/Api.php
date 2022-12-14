@@ -27,12 +27,4 @@ class Api extends BaseApi {
 	public function getResponseContentType() :string {
 		return 'application/json';
 	}
-
-	protected function getVO() :TestVO {
-		return new TestVO();
-	}
-
-	protected function isSuccessful() :bool {
-		return !empty( $this->getDecodedResponseBody() );
-	}
 }

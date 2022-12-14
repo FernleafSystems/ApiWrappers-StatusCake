@@ -38,6 +38,6 @@ class RetrieveAll extends Base {
 	}
 
 	public function getAll() :array {
-		return $this->req()->isSuccessful() ? $this->getDecodedResponseBody()[ 'data' ] : [];
+		return $this->req()->isLastRequestSuccess() ? $this->getDecodedResponseBody()[ 'data' ] : [];
 	}
 }

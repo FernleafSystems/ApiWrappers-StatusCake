@@ -12,6 +12,6 @@ class Update extends BaseCreateUpdate {
 	 * https://developers.statuscake.com/api/#tag/uptime/operation/update-uptime-test
 	 */
 	public function updateTest() :bool {
-		return $this->req()->isSuccessful();
+		return $this->req()->isLastRequestSuccess();
 	}
 }
