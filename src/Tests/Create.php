@@ -7,7 +7,7 @@ class Create extends BaseCreateUpdate {
 	const REQUEST_METHOD = 'post';
 
 	public function createNewTest() :?string {
-		return $this->req()->isSuccessful() ? $this->getDecodedResponseBody()['data'][ 'new_id' ] : null;
+		return $this->req()->isSuccessful() ? $this->getDecodedResponseBody()[ 'data' ][ 'new_id' ] : null;
 	}
 
 	/**
