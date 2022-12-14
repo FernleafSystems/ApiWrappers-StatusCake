@@ -2,7 +2,7 @@
 
 namespace FernleafSystems\ApiWrappers\StatusCake\Tests;
 
-class RetrieveAll extends BaseTests {
+class RetrieveAll extends Base {
 
 	const REQUEST_METHOD = 'get';
 

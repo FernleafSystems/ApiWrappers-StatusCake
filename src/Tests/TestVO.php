@@ -3,19 +3,22 @@
 namespace FernleafSystems\ApiWrappers\StatusCake\Tests;
 
 /**
- * Class TestVO
- * @package FernleafSystems\ApiWrappers\StatusCake\Tests
- * @property        $ErrNo
- * @property string $Error
- * @property int    $TestID
- * @property string $TestType
- * @property int    $CheckRate - seconds
- * @property string $WebsiteName
- * @property int    $Timeout
- * @property int    $Uptime    - percentage
- * @property bool   $Paused
- * @property bool   $Success
- * @property string $Status
+ * @property string   $id
+ * @property string   $website_url
+ * @property string   $test_type
+ * @property int      $check_rate           - seconds
+ * @property string[] $contact_groups       - seconds
+ * @property string   $name
+ * @property int      $timeout              - seconds
+ * @property float    $uptime               - percentage
+ * @property int      $trigger_rate         - minutes
+ * @property string[] $tags
+ * @property string   $status
+ * @property bool     $paused
+ * @property bool     $Success
+ * @property bool     $processing           - currently processing
+ * @property string   $find_string
+ * @property string   $last_tested_at       - date/time RFC3339 format
  */
 class TestVO extends \FernleafSystems\ApiWrappers\Base\BaseVO {
 
@@ -38,22 +41,22 @@ class TestVO extends \FernleafSystems\ApiWrappers\Base\BaseVO {
 	}
 
 	public function id() {
-		return $this->TestID;
+		return $this->id;
 	}
 
 	public function testType() {
-		return $this->TestType;
+		return $this->test_type;
 	}
 
 	/**
 	 * @return int seconds
 	 */
 	public function checkRate() {
-		return $this->CheckRate;
+		return $this->check_rate;
 	}
 
 	public function name() {
-		return $this->WebsiteName;
+		return $this->name;
 	}
 
 	/**
