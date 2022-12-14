@@ -2,45 +2,23 @@
 
 namespace FernleafSystems\ApiWrappers\StatusCake\Tests;
 
-class Retrieve extends BaseTests {
+class Retrieve extends Base {
+
+	use TestAccessor;
 
 	const REQUEST_METHOD = 'get';
 
-	/**
-	 * @return TestVO|null
-	 */
-	public function getTestAsVO() {
-		$oVo = new TestVO();
+	public function getTestAsVO() :?TestVO {
+		$VO = $this->getVO();
 
-		$aData = $this->getTestData();
-		if ( !empty( $aData ) ) {
-			$oVo->applyFromArray( $aData );
+		$data = $this->getTestData();
+		if ( !empty( $data ) ) {
+			$VO->applyFromArray( $data );
 		}
-		return $oVo;
+		return $VO;
 	}
 
-	/**
-	 * https://www.statuscake.com/api/Tests/Get%20Detailed%20Test%20Data.md
-	 *
-	 * @return array|null
-	 */
-	public function getTestData() {
+	public function getTestData() :?array {
 		return $this->req()->isSuccessful() ? $this->getDecodedResponseBody() : null;
-	}
-
-	/**
-	 * @param int $nId
-	 * @return $this
-	 */
-	public function setTestId( $nId ) :self {
-		return $this->setRequestDataItem( 'TestID', (int)$nId );
-	}
-
-	public function unsetTestId() :self {
-		return $this->removeRequestDataItem( 'TestID' );
-	}
-
-	protected function getUrlEndpoint() :string {
-		return 'Tests/Details';
 	}
 }

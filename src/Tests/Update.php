@@ -2,22 +2,16 @@
 
 namespace FernleafSystems\ApiWrappers\StatusCake\Tests;
 
-class Update extends BaseTestUpdate {
+class Update extends BaseCreateUpdate {
+
+	use TestAccessor;
+
+	const REQUEST_METHOD = 'put';
 
 	/**
-	 * https://www.statuscake.com/api/Tests/Updating%20Inserting%20and%20Deleting%20Tests.md
-	 *
-	 * @return bool
+	 * https://developers.statuscake.com/api/#tag/uptime/operation/update-uptime-test
 	 */
-	public function updateTest() {
+	public function updateTest() :bool {
 		return $this->req()->isSuccessful();
-	}
-
-	/**
-	 * @param int $nId
-	 * @return $this
-	 */
-	public function setTestId( $nId ) {
-		return $this->setRequestDataItem( 'TestID', (int)$nId );
 	}
 }
