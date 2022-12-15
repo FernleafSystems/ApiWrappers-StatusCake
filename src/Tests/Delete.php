@@ -9,6 +9,6 @@ class Delete extends Base {
 	const REQUEST_METHOD = 'delete';
 
 	public function deleteTest() :bool {
-		return $this->req()->isSuccessful();
+		return $this->req()->isLastRequestSuccess();
 	}
 }
