@@ -21,6 +21,10 @@ abstract class BaseCreateUpdate extends Base {
 		return $this->setRequestDataItem( 'contact_groups', array_map( 'strval', $ids ) );
 	}
 
+	public function enableSslExpiryCheck( bool $enable ) :self {
+		return $this->setRequestDataItem( 'enable_ssl_alert', $enable );
+	}
+
 	public function setUserAgent( string $ua ) :self {
 		return $this->setRequestDataItem( 'user_agent', $ua );
 	}
