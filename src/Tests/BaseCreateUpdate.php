@@ -21,6 +21,10 @@ abstract class BaseCreateUpdate extends Base {
 		return $this->setRequestDataItem( 'contact_groups', array_map( 'strval', $ids ) );
 	}
 
+	public function enableSslExpiryCheck( bool $enable ) :self {
+		return $this->setRequestDataItem( 'enable_ssl_alert', $enable );
+	}
+
 	public function setUserAgent( string $ua ) :self {
 		return $this->setRequestDataItem( 'user_agent', $ua );
 	}
@@ -34,7 +38,9 @@ abstract class BaseCreateUpdate extends Base {
 	}
 
 	public function setTestTags( array $tags ) :self {
-		return $this->setRequestDataItem( 'tags', implode( ',', $tags ) );
+		return $this->setRequestDataItem( 'tags',
+			array_filter( array_map( fn( $tag ) => trim( strval( $tag ) ), $tags ) )
+		);
 	}
 
 	public function setTestTypeHttp() :self {

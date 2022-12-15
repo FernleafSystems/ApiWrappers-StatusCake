@@ -19,6 +19,6 @@ class Retrieve extends Base {
 	}
 
 	public function getTestData() :?array {
-		return $this->req()->isSuccessful() ? $this->getDecodedResponseBody()[ 'data' ] : null;
+		return $this->req()->isLastRequestSuccess() ? $this->getDecodedResponseBody()[ 'data' ] : null;
 	}
 }

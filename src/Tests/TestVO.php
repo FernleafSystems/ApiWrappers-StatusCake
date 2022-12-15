@@ -2,8 +2,11 @@
 
 namespace FernleafSystems\ApiWrappers\StatusCake\Tests;
 
+use FernleafSystems\ApiWrappers\StatusCake\Constants;
+
 /**
  * @property string   $id
+ * @property string   $status
  * @property string   $website_url
  * @property string   $test_type
  * @property int      $check_rate           - seconds
@@ -13,7 +16,6 @@ namespace FernleafSystems\ApiWrappers\StatusCake\Tests;
  * @property float    $uptime               - percentage
  * @property int      $trigger_rate         - minutes
  * @property string[] $tags
- * @property string   $status
  * @property bool     $paused
  * @property bool     $Success
  * @property bool     $processing           - currently processing
@@ -22,70 +24,15 @@ namespace FernleafSystems\ApiWrappers\StatusCake\Tests;
  */
 class TestVO extends \FernleafSystems\ApiWrappers\Base\BaseVO {
 
-	/**
-	 * @return int|null
-	 */
-	public function getErrorNo() {
-		return $this->ErrNo;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getErrorText() {
-		return $this->Error;
-	}
-
 	public function isValid() :bool {
-		return parent::isValid() && ( $this->isSuccess() || is_null( $this->getErrorNo() ) );
-	}
-
-	public function id() {
-		return $this->id;
-	}
-
-	public function testType() {
-		return $this->test_type;
-	}
-
-	/**
-	 * @return int seconds
-	 */
-	public function checkRate() {
-		return $this->check_rate;
-	}
-
-	public function name() {
-		return $this->name;
-	}
-
-	/**
-	 * @return int seconds
-	 */
-	public function timeout() {
-		return $this->Timeout;
-	}
-
-	/**
-	 * @return int percentage
-	 */
-	public function uptime() {
-		return $this->Uptime;
+		return parent::isValid() && $this->id > 0;
 	}
 
 	public function isDown() :bool {
 		return !$this->isUp();
 	}
 
-	public function isPaused() {
-		return $this->Paused;
-	}
-
-	public function isSuccess() {
-		return (bool)$this->Success;
-	}
-
 	public function isUp() :bool {
-		return $this->Status == 'Up';
+		return $this->status == Constants::UPTIME_STATUS_UP;
 	}
 }
